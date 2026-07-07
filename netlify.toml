@@ -7,6 +7,18 @@
   NODE_VERSION = "20"
 
 [[redirects]]
+  from   = "/admin"
+  to     = "/admin/index.html"
+  status = 200
+  force  = true
+
+[[redirects]]
+  from   = "/admin/*"
+  to     = "/admin/:splat"
+  status = 200
+  force  = false
+
+[[redirects]]
   from   = "/*"
   to     = "/index.html"
   status = 200
