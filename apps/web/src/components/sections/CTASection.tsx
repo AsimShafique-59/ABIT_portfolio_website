@@ -1,6 +1,12 @@
+'use client'
+
 import Link from 'next/link'
+import { useT } from '@/lib/i18n'
 
 export default function CTASection() {
+  const t = useT()
+  const c = t.cta
+
   return (
     <section className="gradient-hero py-24 relative overflow-hidden">
       <div
@@ -15,33 +21,23 @@ export default function CTASection() {
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span className="inline-block px-4 py-1.5 glass text-blue-300 text-sm font-semibold rounded-full mb-6 border border-blue-400/20">
-          24×7 Support Available
+          {c.badge}
         </span>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-6">
-          Ready to Transform Your
+          {c.h2_1}
           <br />
-          <span className="gradient-text">IT Infrastructure?</span>
+          <span className="gradient-text">{c.h2_2}</span>
         </h2>
-        <p className="text-blue-200 text-lg mb-10 max-w-2xl mx-auto">
-          Speak with our team today. Whether you need an emergency field engineer in 2 hours or a long-term managed service partner, ABIT is ready.
-        </p>
+        <p className="text-blue-200 text-lg mb-10 max-w-2xl mx-auto">{c.desc}</p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Link
-            href="/contact"
-            className="px-8 py-4 bg-white text-blue-700 font-bold rounded-2xl hover:bg-blue-50 transition-all hover:scale-105 shadow-xl text-sm"
-          >
-            Get a Free Quote
+          <Link href="/contact" className="px-8 py-4 bg-white text-blue-700 font-bold rounded-2xl hover:bg-blue-50 transition-all hover:scale-105 shadow-xl text-sm">
+            {c.btnQuote}
           </Link>
-          <a
-            href="mailto:sales@abit-tech.com"
-            className="px-8 py-4 glass text-white font-semibold rounded-2xl border border-white/20 hover:bg-white/15 transition-all text-sm"
-          >
-            Email Our Team →
+          <a href="mailto:sales@abit-tech.com" className="px-8 py-4 glass text-white font-semibold rounded-2xl border border-white/20 hover:bg-white/15 transition-all text-sm">
+            {c.btnEmail}
           </a>
         </div>
-        <p className="mt-8 text-blue-300 text-sm">
-          📞 +44 (0)7760 134112 &nbsp;·&nbsp; ✉️ sales@abit-tech.com &nbsp;·&nbsp; 💬 WhatsApp 24×7
-        </p>
+        <p className="mt-8 text-blue-300 text-sm">{c.contact}</p>
       </div>
     </section>
   )

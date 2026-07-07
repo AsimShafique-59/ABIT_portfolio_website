@@ -121,7 +121,7 @@ export const en = {
       { href: '/contact', label: 'Contact Us' },
       { href: '/services', label: 'All Services' },
     ],
-    address: '13 Whites Row, London, E1 7NF, United Kingdom',
+    address: '10 Halliwell Lane, M8 9ER, Manchester, United Kingdom',
     phone: '+44 (0)7760 134112',
     email: 'sales@abit-tech.com',
     whatsapp: 'WhatsApp 24×7 Service Desk',
@@ -228,7 +228,7 @@ export const en = {
     heroDesc: 'Our team responds within 2 hours. For emergency support, WhatsApp and phone lines are available 24×7.',
     infoTitle: 'Contact Information',
     contactItems: [
-      { icon: '📍', label: 'Address', value: '13 Whites Row, London, E1 7NF, United Kingdom' },
+      { icon: '📍', label: 'Address', value: '10 Halliwell Lane, M8 9ER, Manchester, United Kingdom' },
       { icon: '📞', label: 'Phone', value: '+44 (0)7760 134112', href: 'tel:+447760134112' },
       { icon: '🌍', label: 'International', value: '+1 630 423 3333', href: 'tel:+16304233333' },
       { icon: '✉️', label: 'Sales Email', value: 'sales@abit-tech.com', href: 'mailto:sales@abit-tech.com' },
