@@ -8,22 +8,22 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
   title: {
-    default: 'ABIT Technical Services — Managed IT & Data Centre Solutions',
-    template: '%s | ABIT Technical Services',
+    default: 'AB IT and Technical Services — IT Infrastructure, Support & Cybersecurity',
+    template: '%s | AB IT and Technical Services',
   },
   description:
-    'Enterprise IT services across the UK and Europe. Data centre, telecom, cloud, managed security and 450+ on-demand field engineers with 24×7 support.',
-  keywords: ['managed IT services', 'data centre', 'telecom', 'cloud', 'field engineers', 'UK', 'Europe'],
-  authors: [{ name: 'ABIT Technical Services Ltd' }],
+    'Comprehensive IT infrastructure, support, and cybersecurity solutions across the UK and Europe. Data centre support, network & cabling, IT support, and 24/7 remote & on-site technical support.',
+  keywords: ['IT infrastructure', 'data centre support', 'cybersecurity', 'network cabling', 'IT support', 'Manchester', 'UK', 'Europe'],
+  authors: [{ name: 'AB IT and Technical Services' }],
   openGraph: {
     type: 'website',
-    siteName: 'ABIT Technical Services',
+    siteName: 'AB IT and Technical Services',
   },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} data-scroll-behavior="smooth">
       <body className="min-h-screen flex flex-col antialiased">
         <Header />
         <main className="flex-1 pt-[72px]">{children}</main>
