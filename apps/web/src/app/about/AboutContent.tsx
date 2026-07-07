@@ -50,21 +50,33 @@ export default function AboutContent() {
       </section>
 
       {/* Coverage */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 text-sm font-semibold rounded-full mb-4">{a.coverageBadge}</span>
-          <h2 className="text-3xl font-black text-slate-900 mb-6">
-            {a.coverageH2_1} <span className="text-blue-600">{a.coverageH2_2}</span>
-          </h2>
-          <p className="text-slate-500 text-lg max-w-2xl mx-auto mb-12">{a.coverageDesc}</p>
-          <div className="flex flex-wrap justify-center gap-6">
-            {a.regions.map((r) => (
-              <div key={r.region} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 card-hover text-center w-56">
-                <span className="text-4xl mb-4 block">{r.flag}</span>
-                <h3 className="text-slate-900 font-bold text-sm mb-2">{r.region}</h3>
-                <p className="text-slate-400 text-xs">{r.detail}</p>
-              </div>
-            ))}
+      <section className="gradient-blue py-14">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            {/* Left: heading + desc */}
+            <div className="md:max-w-sm text-center md:text-left">
+              <span className="inline-block px-3 py-1 bg-white/20 text-blue-100 text-xs font-semibold rounded-full mb-3 uppercase tracking-wider">{a.coverageBadge}</span>
+              <h2 className="text-2xl font-black text-white mb-2">
+                {a.coverageH2_1} <span className="text-blue-200">{a.coverageH2_2}</span>
+              </h2>
+              <p className="text-blue-200 text-sm leading-relaxed">{a.coverageDesc}</p>
+            </div>
+
+            {/* Divider */}
+            <div className="hidden md:block w-px h-20 bg-white/20" />
+
+            {/* Right: region pills */}
+            <div className="flex flex-wrap justify-center gap-4">
+              {a.regions.map((r) => (
+                <div key={r.region} className="flex items-center gap-3 bg-white/10 border border-white/20 rounded-2xl px-5 py-4 backdrop-blur-sm">
+                  <span className="text-3xl shrink-0">{r.flag}</span>
+                  <div>
+                    <div className="text-white font-black text-sm">{r.region}</div>
+                    <div className="text-blue-200 text-xs mt-0.5">{r.detail}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
