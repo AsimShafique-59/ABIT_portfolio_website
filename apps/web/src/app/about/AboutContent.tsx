@@ -109,15 +109,36 @@ export default function AboutContent() {
 
       {/* Trusted clients */}
       <section className="py-20 bg-white border-t border-slate-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-black text-slate-900 mb-3">{a.clientsTitle}</h2>
-          <p className="text-slate-500 text-sm mb-10">{a.clientsDesc}</p>
-          <div className="flex flex-wrap justify-center items-center gap-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl font-black text-slate-900 mb-3">{a.clientsTitle}</h2>
+            <p className="text-slate-500 text-sm">{a.clientsDesc}</p>
+          </div>
+
+          {/* Client cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
             {a.clients.map((client) => (
-              <div key={client} className="px-8 py-4 bg-slate-50 rounded-2xl border border-slate-200 text-slate-600 font-bold text-sm tracking-wide hover:bg-blue-50 hover:border-blue-200 hover:text-blue-700 transition-all">
-                {client}
+              <div key={client.name} className="flex flex-col items-center gap-2 px-4 py-5 bg-slate-50 rounded-2xl border border-slate-200 hover:bg-blue-50 hover:border-blue-200 transition-all text-center group">
+                <span className="text-slate-800 font-black text-sm group-hover:text-blue-700 transition-colors">{client.name}</span>
+                <span className="text-xs text-slate-400 font-medium">{client.sector}</span>
               </div>
             ))}
+          </div>
+
+          {/* IKEA featured project callout */}
+          <div className="gradient-blue rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 shadow-xl shadow-blue-500/20">
+            <div className="text-5xl shrink-0">🏪</div>
+            <div className="flex-1 text-center md:text-left">
+              <div className="inline-block px-3 py-1 bg-white/20 text-blue-100 text-xs font-semibold rounded-full mb-3 uppercase tracking-wider">
+                Featured Project
+              </div>
+              <h3 className="text-white font-black text-xl mb-2">{a.ikeaTitle}</h3>
+              <p className="text-blue-100 text-sm leading-relaxed">{a.ikeaDesc}</p>
+            </div>
+            <div className="shrink-0 text-center">
+              <div className="text-4xl font-black text-white">40+</div>
+              <div className="text-blue-200 text-xs font-medium uppercase tracking-wider mt-1">Sites Delivered</div>
+            </div>
           </div>
         </div>
       </section>

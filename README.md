@@ -10,7 +10,7 @@
 
 Portfolio website for **AB IT and Technical Services**, a leading IT solutions provider based in Manchester, UK — specialising in data centre support, IT infrastructure, network & cabling, and cybersecurity across the UK and Europe.
 
-**Key clients:** Morgan Stanley · Equinix · Deutsche Telekom · Shell · Solventum
+**Key clients:** Morgan Stanley · Equinix · Deutsche Telekom · Shell · Solventum · IKEA (40+ sites)
 
 ---
 
