@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useT } from '@/lib/i18n'
 import { SERVICES } from '@/lib/data'
@@ -15,12 +16,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl gradient-blue flex items-center justify-center text-white font-black text-lg">A</div>
-              <div className="flex flex-col leading-tight">
-                <span className="text-white font-black text-xl">ABIT</span>
-                <span className="text-blue-400 text-xs font-medium tracking-widest uppercase">Technical Services</span>
-              </div>
+            <div className="mb-6">
+              <Image
+                src="/logo.png"
+                alt="AB IT and Technical Services"
+                width={150}
+                height={52}
+                className="h-12 w-auto object-contain"
+              />
             </div>
             <p className="text-blue-200 text-sm leading-relaxed mb-6">{f.tagline}</p>
             <div className="flex gap-3">

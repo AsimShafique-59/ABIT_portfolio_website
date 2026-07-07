@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useLanguageStore } from '@/store/useLanguageStore'
@@ -25,14 +26,15 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-18 py-3">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl gradient-blue flex items-center justify-center text-white font-black text-lg shadow-lg shadow-blue-500/30">
-              A
-            </div>
-            <div className="flex flex-col leading-tight">
-              <span className="text-white font-black text-xl tracking-wide">ABIT</span>
-              <span className="text-blue-400 text-xs font-medium tracking-widest uppercase">Technical Services</span>
-            </div>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="AB IT and Technical Services"
+              width={160}
+              height={56}
+              className="h-12 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}
