@@ -22,6 +22,11 @@ export const metadata: Metadata = {
     'AB IT Technical Services', 'ABIT', 'ab it and technical services',
   ],
   authors: [{ name: 'AB IT and Technical Services' }],
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   openGraph: {
     type: 'website',
