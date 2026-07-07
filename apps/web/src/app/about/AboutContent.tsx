@@ -105,8 +105,8 @@ export default function AboutContent() {
               <div className="grid grid-cols-3 gap-6">
                 {a.industries.slice(0, 3).map((ind) => (
                   <div key={ind.name} className="flex flex-col items-center text-center gap-4">
-                    <div className="w-20 h-20 rounded-full gradient-blue flex items-center justify-center text-3xl shadow-lg shadow-blue-500/30 shrink-0">
-                      {ind.icon}
+                    <div className="w-20 h-20 rounded-full gradient-blue flex items-center justify-center shadow-lg shadow-blue-500/30 shrink-0 p-4">
+                      <Image src={ind.logo} alt={ind.name} width={48} height={48} className="w-full h-full object-contain" />
                     </div>
                     <div>
                       <h3 className="text-slate-900 font-black text-xs uppercase tracking-wide mb-2">{ind.name}</h3>
@@ -120,8 +120,8 @@ export default function AboutContent() {
               <div className="flex justify-center">
                 {a.industries.slice(3).map((ind) => (
                   <div key={ind.name} className="flex flex-col items-center text-center gap-4 max-w-[160px]">
-                    <div className="w-20 h-20 rounded-full gradient-blue flex items-center justify-center text-3xl shadow-lg shadow-blue-500/30 shrink-0">
-                      {ind.icon}
+                    <div className="w-20 h-20 rounded-full gradient-blue flex items-center justify-center shadow-lg shadow-blue-500/30 shrink-0 p-4">
+                      <Image src={ind.logo} alt={ind.name} width={48} height={48} className="w-full h-full object-contain" />
                     </div>
                     <div>
                       <h3 className="text-slate-900 font-black text-xs uppercase tracking-wide mb-2">{ind.name}</h3>
@@ -164,7 +164,9 @@ export default function AboutContent() {
 
           {/* IKEA featured project callout */}
           <div className="gradient-blue rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 shadow-xl shadow-blue-500/20">
-            <div className="text-5xl shrink-0">🏪</div>
+            <div className="shrink-0 bg-white rounded-2xl p-3 shadow-lg">
+              <Image src="/clients/ikea.svg" alt="IKEA" width={80} height={48} className="h-12 w-auto object-contain" />
+            </div>
             <div className="flex-1 text-center md:text-left">
               <div className="inline-block px-3 py-1 bg-white/20 text-blue-100 text-xs font-semibold rounded-full mb-3 uppercase tracking-wider">
                 Featured Project
