@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Shopping bag body -->
+  <path d="M14 22h36l-4 30H18L14 22Z" fill="white"/>
+  <!-- Handle left -->
+  <path d="M24 22V18a8 8 0 0 1 16 0v4" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- Price tag dot -->
+  <circle cx="32" cy="38" r="3" fill="#3B82F6"/>
+</svg>
