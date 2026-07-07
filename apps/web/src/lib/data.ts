@@ -13,13 +13,6 @@ export interface Service {
   useCases: string[]
 }
 
-export interface Stat {
-  value: string
-  label: string
-  prefix?: string
-  suffix?: string
-}
-
 export interface Location {
   city: string
   country: string
@@ -46,15 +39,6 @@ export const TESTIMONIALS: Testimonial[] = (testimonialsData as { testimonials: 
 
 export const CLIENTS: Client[] = (clientsData as { clients: Client[] }).clients
 
-export const STATS: Stat[] = [
-  { value: '10', suffix: '+', label: 'Years of Experience' },
-  { value: '450', suffix: '+', label: 'Field Engineers' },
-  { value: '25', suffix: '+', label: 'Countries Covered' },
-  { value: '5000', suffix: '+', label: 'Tickets Resolved (12 mo)' },
-  { value: '98', suffix: '%', label: 'SLA Achievement Rate' },
-  { value: '15', suffix: ' min', label: 'Ticket Response Time' },
-]
-
 export const LOCATIONS: Location[] = [
   { city: 'London', country: 'United Kingdom', region: 'UK', flag: '🇬🇧' },
   { city: 'Manchester', country: 'United Kingdom', region: 'UK', flag: '🇬🇧' },
@@ -70,11 +54,3 @@ export const LOCATIONS: Location[] = [
   { city: 'Brussels', country: 'Belgium', region: 'Europe', flag: '🇧🇪' },
 ]
 
-export const WHY_CHOOSE: { title: string; desc: string; icon: string }[] = [
-  { title: 'UK & Europe Coverage', desc: 'Direct coverage across EMEA regions with 450+ engineers ready to deploy anywhere.', icon: '🌍' },
-  { title: 'SC-Cleared Engineers', desc: 'We provide Security Cleared (SC) engineers within the UK for government and sensitive sites.', icon: '🔐' },
-  { title: '98% SLA Achievement', desc: 'Our 15-minute response time and 2-4 hour on-site targets are backed by a 98% SLA record.', icon: '📊' },
-  { title: 'Multi-Technology Expertise', desc: 'From data centres and telecom to cloud and security — one partner for all your IT needs.', icon: '⚡' },
-  { title: 'GDPR Compliant', desc: 'Fully GDPR-compliant operations with trained staff, signed NDAs, and a documented data policy.', icon: '✅' },
-  { title: '10+ Years Experience', desc: 'Trusted by enterprises and carriers across the UK and Europe for over a decade.', icon: '🏆' },
-]
