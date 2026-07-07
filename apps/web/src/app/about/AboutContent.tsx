@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useT } from '@/lib/i18n'
+import { CLIENTS } from '@/lib/data'
 
 export default function AboutContent() {
   const t = useT()

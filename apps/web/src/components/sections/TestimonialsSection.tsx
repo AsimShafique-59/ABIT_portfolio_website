@@ -1,6 +1,7 @@
 'use client'
 
 import { useT } from '@/lib/i18n'
+import { TESTIMONIALS } from '@/lib/data'
 
 export default function TestimonialsSection() {
   const t = useT()
@@ -21,7 +22,7 @@ export default function TestimonialsSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {tm.items.map((item) => (
+          {TESTIMONIALS.map((item) => (
             <div key={item.name} className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm card-hover relative">
               <div className="absolute top-6 right-8 text-6xl text-blue-100 font-black leading-none select-none">"</div>
               <div className="flex gap-1 mb-5">

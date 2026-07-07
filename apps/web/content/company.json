@@ -1,0 +1,17 @@
+{
+  "name": "AB IT and Technical Services",
+  "address": "10 Halliwell Lane, M8 9ER, Manchester, United Kingdom",
+  "phoneBelgium": "+32 487 720065",
+  "phoneGermany": "+49 176 21472983",
+  "emailMain": "muhammad.abdullah@abittechnical.co.uk",
+  "emailSupport": "basim.shafique@abittechnical.co.uk",
+  "website": "https://abittechnical.co.uk",
+  "stats": [
+    { "value": "10+", "label": "Years of Experience" },
+    { "value": "450+", "label": "Field Engineers" },
+    { "value": "25+", "label": "Countries Covered" },
+    { "value": "5,000+", "label": "Tickets Resolved (12 mo)" },
+    { "value": "98%", "label": "SLA Achievement Rate" },
+    { "value": "15 min", "label": "Ticket Response Time" }
+  ]
+}
