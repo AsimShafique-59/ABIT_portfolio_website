@@ -1,8 +1,10 @@
-[
-  { "name": "Morgan Stanley", "sector": "Financial Institutions", "logo": "/clients/morgan-stanley.svg" },
-  { "name": "Equinix", "sector": "Data Centres", "logo": "/clients/equinix.svg" },
-  { "name": "Deutsche Telekom", "sector": "Telecommunications", "logo": "/clients/deutsche-telekom.svg" },
-  { "name": "Shell", "sector": "Energy", "logo": "/clients/shell.svg" },
-  { "name": "Solventum", "sector": "Healthcare", "logo": "/clients/solventum.svg" },
-  { "name": "IKEA", "sector": "Furniture & Retail", "logo": "/clients/ikea.svg" }
-]
+{
+  "clients": [
+    { "name": "Morgan Stanley", "sector": "Financial Institutions", "logo": "/clients/morgan-stanley.svg" },
+    { "name": "Equinix", "sector": "Data Centres", "logo": "/clients/equinix.svg" },
+    { "name": "Deutsche Telekom", "sector": "Telecommunications", "logo": "/clients/deutsche-telekom.svg" },
+    { "name": "Shell", "sector": "Energy", "logo": "/clients/shell.svg" },
+    { "name": "Solventum", "sector": "Healthcare", "logo": "/clients/solventum.svg" },
+    { "name": "IKEA", "sector": "Furniture & Retail", "logo": "/clients/ikea.svg" }
+  ]
+}

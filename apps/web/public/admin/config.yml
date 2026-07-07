@@ -2,86 +2,115 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: apps/web/public/clients
-public_folder: /clients
+media_folder: "apps/web/public/clients"
+public_folder: "/clients"
 
 collections:
-  - name: services
-    label: Services
-    label_singular: Service
-    folder: apps/web/content
-    create: false
+  - name: "company"
+    label: "Company Info"
     files:
-      - name: services
-        label: All Services
-        file: apps/web/content/services.json
+      - name: "company"
+        label: "Company Details & Contact"
+        file: "apps/web/content/company.json"
         fields:
-          - name: body
-            label: Services
-            widget: list
-            fields:
-              - { name: slug, label: Slug, widget: string, hint: "URL slug e.g. data-centre (do not change)" }
-              - { name: title, label: Title, widget: string }
-              - { name: shortDesc, label: Short Description, widget: text }
-              - { name: fullDesc, label: Full Description, widget: text }
-              - { name: icon, label: Icon (emoji), widget: string }
-              - name: features
-                label: Features
-                widget: list
-                field: { name: item, label: Feature, widget: string }
-              - name: useCases
-                label: Use Cases
-                widget: list
-                field: { name: item, label: Use Case, widget: string }
+          - label: "Company Name"
+            name: "name"
+            widget: "string"
+          - label: "Address"
+            name: "address"
+            widget: "string"
+          - label: "Phone (Belgium)"
+            name: "phoneBelgium"
+            widget: "string"
+          - label: "Phone (Germany)"
+            name: "phoneGermany"
+            widget: "string"
+          - label: "Email (Main)"
+            name: "emailMain"
+            widget: "string"
+          - label: "Email (Support)"
+            name: "emailSupport"
+            widget: "string"
+          - label: "Website"
+            name: "website"
+            widget: "string"
 
-  - name: testimonials
-    label: Testimonials
+  - name: "testimonials"
+    label: "Testimonials"
     files:
-      - name: testimonials
-        label: Client Testimonials
-        file: apps/web/content/testimonials.json
+      - name: "testimonials"
+        label: "Client Testimonials"
+        file: "apps/web/content/testimonials.json"
         fields:
-          - name: body
-            label: Testimonials
-            widget: list
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
             fields:
-              - { name: quote, label: Quote, widget: text }
-              - { name: name, label: Name, widget: string }
-              - { name: role, label: Role / Job Title, widget: string }
-              - { name: company, label: Company, widget: string }
+              - label: "Quote"
+                name: "quote"
+                widget: "text"
+              - label: "Name"
+                name: "name"
+                widget: "string"
+              - label: "Role / Job Title"
+                name: "role"
+                widget: "string"
+              - label: "Company"
+                name: "company"
+                widget: "string"
 
-  - name: clients
-    label: Key Clients
+  - name: "clients"
+    label: "Key Clients"
     files:
-      - name: clients
-        label: Key Clients
-        file: apps/web/content/clients.json
+      - name: "clients"
+        label: "Key Clients"
+        file: "apps/web/content/clients.json"
         fields:
-          - name: body
-            label: Clients
-            widget: list
+          - label: "Clients"
+            name: "clients"
+            widget: "list"
             fields:
-              - { name: name, label: Company Name, widget: string }
-              - { name: sector, label: Sector, widget: string }
-              - { name: logo, label: Logo Path, widget: string, hint: "e.g. /clients/ikea.svg" }
+              - label: "Company Name"
+                name: "name"
+                widget: "string"
+              - label: "Sector"
+                name: "sector"
+                widget: "string"
+              - label: "Logo Path"
+                name: "logo"
+                widget: "string"
+                hint: "e.g. /clients/ikea.svg"
 
-  - name: company
-    label: Company Info
+  - name: "services"
+    label: "Services"
     files:
-      - name: company
-        label: Company Details & Contact
-        file: apps/web/content/company.json
+      - name: "services"
+        label: "All Services"
+        file: "apps/web/content/services.json"
         fields:
-          - { name: name, label: Company Name, widget: string }
-          - { name: address, label: Address, widget: string }
-          - { name: phoneBelgium, label: Phone (Belgium), widget: string }
-          - { name: phoneGermany, label: Phone (Germany), widget: string }
-          - { name: emailMain, label: Email (Main), widget: string }
-          - { name: emailSupport, label: Email (Support), widget: string }
-          - { name: website, label: Website URL, widget: string }
-          - name: stats
-            label: Stats
-            widget: list
+          - label: "Services"
+            name: "services"
+            widget: "list"
             fields:
-              - { name: value, label: Value (e.g. 450+), widget: string }
-              - { name: label, label: Label, widget: string }
+              - label: "Slug"
+                name: "slug"
+                widget: "string"
+                hint: "URL slug — do not change e.g. data-centre"
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Short Description"
+                name: "shortDesc"
+                widget: "text"
+              - label: "Full Description"
+                name: "fullDesc"
+                widget: "text"
+              - label: "Icon (emoji)"
+                name: "icon"
+                widget: "string"
+              - label: "Features"
+                name: "features"
+                widget: "list"
+              - label: "Use Cases"
+                name: "useCases"
+                widget: "list"

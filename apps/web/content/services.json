@@ -1,4 +1,5 @@
-[
+{
+  "services": [
   {
     "slug": "data-centre",
     "title": "Data Centre Support Services",
@@ -189,4 +190,5 @@
     ],
     "useCases": ["Managed service contracts", "NOC & SOC operations", "IT helpdesk outsourcing", "Alarm management"]
   }
-]
+  ]
+}

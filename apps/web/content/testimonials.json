@@ -1,20 +1,22 @@
-[
-  {
-    "quote": "AB IT delivered server and switch installations across 40+ of our sites with remarkable consistency and professionalism. Every rollout was completed on schedule with zero disruption to store operations.",
-    "name": "Project Lead",
-    "role": "IT Infrastructure Manager",
-    "company": "IKEA"
-  },
-  {
-    "quote": "Their data centre support team handled our complete infrastructure upgrade with zero downtime. The Smart Hands service is exactly what we needed — responsive, skilled, and reliable.",
-    "name": "Sophie Müller",
-    "role": "IT Director",
-    "company": "Equinix Partner"
-  },
-  {
-    "quote": "The cybersecurity team identified critical vulnerabilities in our network within days. Their SIEM solution and 24/7 monitoring have given us complete confidence in our security posture.",
-    "name": "Carlos Reyes",
-    "role": "Head of Cybersecurity",
-    "company": "Financial Services Client"
-  }
-]
+{
+  "testimonials": [
+    {
+      "quote": "AB IT delivered server and switch installations across 40+ of our sites with remarkable consistency and professionalism. Every rollout was completed on schedule with zero disruption to store operations.",
+      "name": "Project Lead",
+      "role": "IT Infrastructure Manager",
+      "company": "IKEA"
+    },
+    {
+      "quote": "Their data centre support team handled our complete infrastructure upgrade with zero downtime. The Smart Hands service is exactly what we needed — responsive, skilled, and reliable.",
+      "name": "Sophie Müller",
+      "role": "IT Director",
+      "company": "Equinix Partner"
+    },
+    {
+      "quote": "The cybersecurity team identified critical vulnerabilities in our network within days. Their SIEM solution and 24/7 monitoring have given us complete confidence in our security posture.",
+      "name": "Carlos Reyes",
+      "role": "Head of Cybersecurity",
+      "company": "Financial Services Client"
+    }
+  ]
+}

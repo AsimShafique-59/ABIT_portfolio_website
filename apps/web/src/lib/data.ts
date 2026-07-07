@@ -40,11 +40,11 @@ export interface Client {
   logo: string
 }
 
-export const SERVICES: Service[] = servicesData as Service[]
+export const SERVICES: Service[] = (servicesData as { services: Service[] }).services
 
-export const TESTIMONIALS: Testimonial[] = testimonialsData as Testimonial[]
+export const TESTIMONIALS: Testimonial[] = (testimonialsData as { testimonials: Testimonial[] }).testimonials
 
-export const CLIENTS: Client[] = clientsData as Client[]
+export const CLIENTS: Client[] = (clientsData as { clients: Client[] }).clients
 
 export const STATS: Stat[] = [
   { value: '10', suffix: '+', label: 'Years of Experience' },
