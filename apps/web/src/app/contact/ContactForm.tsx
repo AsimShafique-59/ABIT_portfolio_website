@@ -41,7 +41,7 @@ export default function ContactForm() {
         <h3 className="text-2xl font-black text-slate-900 mb-4">{c.successTitle}</h3>
         <p className="text-slate-600 leading-relaxed mb-8">
           {c.successDesc}{' '}
-          <a href="tel:+447760134112" className="text-blue-600 font-semibold">+44 (0)7760 134112</a>.
+          <a href="tel:+32487720065" className="text-blue-600 font-semibold">+32 487 720065</a>.
         </p>
         <button
           onClick={() => { setForm(INITIAL); setSubmitted(false) }}

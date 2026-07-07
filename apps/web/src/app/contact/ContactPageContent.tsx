@@ -60,7 +60,7 @@ export default function ContactPageContent() {
                 <div className="text-3xl mb-3">⚡</div>
                 <h3 className="font-bold mb-2">{c.emergencyTitle}</h3>
                 <p className="text-blue-100 text-sm leading-relaxed mb-4">{c.emergencyDesc}</p>
-                <a href="tel:+447760134112" className="block text-center px-4 py-2.5 bg-white text-blue-700 font-bold rounded-xl text-sm hover:bg-blue-50 transition-all">
+                <a href="tel:+32487720065" className="block text-center px-4 py-2.5 bg-white text-blue-700 font-bold rounded-xl text-sm hover:bg-blue-50 transition-all">
                   {c.emergencyBtn}
                 </a>
               </div>

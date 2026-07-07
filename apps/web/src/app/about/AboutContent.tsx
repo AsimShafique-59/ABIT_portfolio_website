@@ -89,6 +89,39 @@ export default function AboutContent() {
         </div>
       </section>
 
+      {/* Industry specialisations */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-black text-slate-900 mb-4">{a.industriesTitle}</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {a.industries.map((ind) => (
+              <div key={ind.name} className="bg-white rounded-2xl p-7 shadow-sm border border-slate-100 card-hover text-center">
+                <span className="text-4xl mb-4 block">{ind.icon}</span>
+                <h3 className="text-slate-900 font-bold text-sm mb-3">{ind.name}</h3>
+                <p className="text-slate-500 text-xs leading-relaxed">{ind.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trusted clients */}
+      <section className="py-20 bg-white border-t border-slate-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl font-black text-slate-900 mb-3">{a.clientsTitle}</h2>
+          <p className="text-slate-500 text-sm mb-10">{a.clientsDesc}</p>
+          <div className="flex flex-wrap justify-center items-center gap-8">
+            {a.clients.map((client) => (
+              <div key={client} className="px-8 py-4 bg-slate-50 rounded-2xl border border-slate-200 text-slate-600 font-bold text-sm tracking-wide hover:bg-blue-50 hover:border-blue-200 hover:text-blue-700 transition-all">
+                {client}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="gradient-blue py-20">
         <div className="max-w-3xl mx-auto px-4 text-center">
