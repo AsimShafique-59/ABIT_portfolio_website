@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --blue-950: #050d24;
+  --blue-900: #0b1437;
+  --blue-800: #0f2060;
+  --blue-700: #1e3a8a;
+  --blue-600: #1d4ed8;
+  --blue-500: #2563eb;
+  --blue-400: #3b82f6;
+  --blue-300: #60a5fa;
+  --blue-100: #dbeafe;
+  --blue-50:  #eff6ff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.9); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.animate-fade-in-up { animation: fade-in-up 0.7s ease-out forwards; }
+.animate-float      { animation: float 4s ease-in-out infinite; }
+.animate-pulse-ring { animation: pulse-ring 2s ease-out infinite; }
+
+.gradient-hero {
+  background: linear-gradient(135deg, #050d24 0%, #0f2060 40%, #1d4ed8 100%);
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #3b82f6 100%);
+}
+
+.gradient-dark {
+  background: linear-gradient(135deg, #0b1437 0%, #0f2060 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #60a5fa, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }

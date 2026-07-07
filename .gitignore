@@ -8,6 +8,11 @@
 !.yarn/releases
 !.yarn/versions
 
+# Netlify / local deployment artifacts
+.netlify/
+.netlify/functions/
+.vercel/
+
 # Build outputs
 **/.next/
 **/out/
@@ -36,7 +41,8 @@ lerna-debug.log*
 .DS_Store
 Thumbs.db
 .vscode/
+.idea/
+*.swp
 
 # Misc
 *.pem
-.vercel
