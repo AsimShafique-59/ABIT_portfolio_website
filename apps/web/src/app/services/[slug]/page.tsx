@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 import { SERVICES } from '@/lib/data'
+import ServiceDetailContent from './ServiceDetailContent'
 
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }))
@@ -13,142 +13,13 @@ export async function generateMetadata(props: PageProps<'/services/[slug]'>): Pr
   if (!service) return {}
   return {
     title: service.title,
-    description: service.fullDesc,
+    description: service.shortDesc,
   }
 }
 
 export default async function ServiceDetailPage(props: PageProps<'/services/[slug]'>) {
   const { slug } = await props.params
   const service = SERVICES.find((s) => s.slug === slug)
-
   if (!service) notFound()
-
-  const related = SERVICES.filter((s) => s.slug !== slug).slice(0, 3)
-
-  return (
-    <>
-      {/* Hero */}
-      <section className="gradient-hero py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Link href="/services" className="inline-flex items-center gap-2 text-blue-300 hover:text-blue-200 text-sm mb-8 transition-colors">
-            ← Back to Services
-          </Link>
-          <div className="w-20 h-20 rounded-3xl gradient-blue flex items-center justify-center text-4xl mx-auto mb-8 shadow-2xl shadow-blue-500/30">
-            {service.icon}
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-white mb-6">{service.title}</h1>
-          <p className="text-blue-200 text-lg max-w-2xl mx-auto leading-relaxed">{service.shortDesc}</p>
-        </div>
-      </section>
-
-      {/* Main content */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-12">
-            {/* Left — description */}
-            <div className="lg:col-span-2">
-              <h2 className="text-2xl font-black text-slate-900 mb-6">About This Service</h2>
-              <p className="text-slate-600 leading-relaxed text-base mb-10">{service.fullDesc}</p>
-
-              <h3 className="text-xl font-black text-slate-900 mb-6">What We Deliver</h3>
-              <div className="grid sm:grid-cols-2 gap-4 mb-10">
-                {service.features.map((f) => (
-                  <div key={f} className="flex items-start gap-3 bg-slate-50 rounded-xl p-4">
-                    <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5">
-                      <span className="text-blue-600 text-xs">✓</span>
-                    </div>
-                    <span className="text-slate-700 text-sm leading-relaxed">{f}</span>
-                  </div>
-                ))}
-              </div>
-
-              {service.useCases.length > 0 && (
-                <>
-                  <h3 className="text-xl font-black text-slate-900 mb-6">Typical Use Cases</h3>
-                  <div className="flex flex-wrap gap-3">
-                    {service.useCases.map((u) => (
-                      <span key={u} className="px-4 py-2 bg-blue-50 text-blue-700 rounded-xl text-sm font-medium">
-                        {u}
-                      </span>
-                    ))}
-                  </div>
-                </>
-              )}
-            </div>
-
-            {/* Right sidebar */}
-            <div className="space-y-6">
-              {/* CTA card */}
-              <div className="gradient-blue rounded-3xl p-8 text-white">
-                <h3 className="text-xl font-black mb-3">Get a Quote</h3>
-                <p className="text-blue-100 text-sm mb-6 leading-relaxed">
-                  Tell us your requirements and our team will respond within 2 hours with a tailored proposal.
-                </p>
-                <Link
-                  href="/contact"
-                  className="block text-center px-6 py-3 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 transition-all text-sm"
-                >
-                  Contact Us →
-                </Link>
-              </div>
-
-              {/* Contact card */}
-              <div className="bg-slate-50 rounded-3xl p-6 space-y-4">
-                <h3 className="text-slate-900 font-bold text-sm">Speak to Our Team</h3>
-                <div className="space-y-3 text-sm text-slate-600">
-                  <div className="flex gap-3">
-                    <span>📞</span>
-                    <a href="tel:+447760134112" className="hover:text-blue-600 transition-colors">
-                      +44 (0)7760 134112
-                    </a>
-                  </div>
-                  <div className="flex gap-3">
-                    <span>✉️</span>
-                    <a href="mailto:sales@abit-tech.com" className="hover:text-blue-600 transition-colors">
-                      sales@abit-tech.com
-                    </a>
-                  </div>
-                  <div className="flex gap-3">
-                    <span>💬</span>
-                    <span>WhatsApp 24×7</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* SLA info */}
-              <div className="bg-blue-50 rounded-3xl p-6 border border-blue-100">
-                <h3 className="text-slate-900 font-bold text-sm mb-4">Our Commitment</h3>
-                <ul className="space-y-3 text-sm text-slate-600">
-                  <li className="flex gap-3"><span className="text-blue-500">⏱</span>15-min ticket response</li>
-                  <li className="flex gap-3"><span className="text-blue-500">🚀</span>2–4 hr on-site target</li>
-                  <li className="flex gap-3"><span className="text-blue-500">📊</span>98% SLA achievement</li>
-                  <li className="flex gap-3"><span className="text-blue-500">🌍</span>25+ countries covered</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Related services */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-black text-slate-900 mb-8">Related Services</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {related.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/services/${s.slug}`}
-                className="bg-white rounded-2xl p-6 border border-slate-100 card-hover group"
-              >
-                <span className="text-3xl mb-4 block">{s.icon}</span>
-                <h3 className="text-slate-900 font-bold text-sm mb-2 group-hover:text-blue-600 transition-colors">{s.title}</h3>
-                <p className="text-slate-500 text-xs leading-relaxed">{s.shortDesc}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
-  )
+  return <ServiceDetailContent slug={slug} />
 }
