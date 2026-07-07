@@ -91,18 +91,45 @@ export default function AboutContent() {
 
       {/* Industry specialisations */}
       <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl font-black text-slate-900 mb-4">{a.industriesTitle}</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {a.industries.map((ind) => (
-              <div key={ind.name} className="bg-white rounded-2xl p-7 shadow-sm border border-slate-100 card-hover text-center">
-                <span className="text-4xl mb-4 block">{ind.icon}</span>
-                <h3 className="text-slate-900 font-bold text-sm mb-3">{ind.name}</h3>
-                <p className="text-slate-500 text-xs leading-relaxed">{ind.desc}</p>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left label */}
+            <div>
+              <h2 className="text-4xl font-black text-slate-900 leading-tight">{a.industriesTitle}</h2>
+            </div>
+
+            {/* Right: 3 top + 1 bottom-centre */}
+            <div className="space-y-10">
+              {/* Top row — 3 */}
+              <div className="grid grid-cols-3 gap-6">
+                {a.industries.slice(0, 3).map((ind) => (
+                  <div key={ind.name} className="flex flex-col items-center text-center gap-4">
+                    <div className="w-20 h-20 rounded-full gradient-blue flex items-center justify-center text-3xl shadow-lg shadow-blue-500/30 shrink-0">
+                      {ind.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-slate-900 font-black text-xs uppercase tracking-wide mb-2">{ind.name}</h3>
+                      <p className="text-slate-500 text-xs leading-relaxed uppercase">{ind.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+
+              {/* Bottom row — 1 centred */}
+              <div className="flex justify-center">
+                {a.industries.slice(3).map((ind) => (
+                  <div key={ind.name} className="flex flex-col items-center text-center gap-4 max-w-[160px]">
+                    <div className="w-20 h-20 rounded-full gradient-blue flex items-center justify-center text-3xl shadow-lg shadow-blue-500/30 shrink-0">
+                      {ind.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-slate-900 font-black text-xs uppercase tracking-wide mb-2">{ind.name}</h3>
+                      <p className="text-slate-500 text-xs leading-relaxed uppercase">{ind.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
