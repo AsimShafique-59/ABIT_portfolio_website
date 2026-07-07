@@ -80,6 +80,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={inter.variable} data-scroll-behavior="smooth">
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" async />
+        <script dangerouslySetInnerHTML={{ __html: `if(window.netlifyIdentity){window.netlifyIdentity.on('init',function(u){if(!u){window.netlifyIdentity.on('login',function(){document.location.href='/admin/'})}})}` }} />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
         <Header />

@@ -1,0 +1,87 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: apps/web/public/clients
+public_folder: /clients
+
+collections:
+  - name: services
+    label: Services
+    label_singular: Service
+    folder: apps/web/content
+    create: false
+    files:
+      - name: services
+        label: All Services
+        file: apps/web/content/services.json
+        fields:
+          - name: body
+            label: Services
+            widget: list
+            fields:
+              - { name: slug, label: Slug, widget: string, hint: "URL slug e.g. data-centre (do not change)" }
+              - { name: title, label: Title, widget: string }
+              - { name: shortDesc, label: Short Description, widget: text }
+              - { name: fullDesc, label: Full Description, widget: text }
+              - { name: icon, label: Icon (emoji), widget: string }
+              - name: features
+                label: Features
+                widget: list
+                field: { name: item, label: Feature, widget: string }
+              - name: useCases
+                label: Use Cases
+                widget: list
+                field: { name: item, label: Use Case, widget: string }
+
+  - name: testimonials
+    label: Testimonials
+    files:
+      - name: testimonials
+        label: Client Testimonials
+        file: apps/web/content/testimonials.json
+        fields:
+          - name: body
+            label: Testimonials
+            widget: list
+            fields:
+              - { name: quote, label: Quote, widget: text }
+              - { name: name, label: Name, widget: string }
+              - { name: role, label: Role / Job Title, widget: string }
+              - { name: company, label: Company, widget: string }
+
+  - name: clients
+    label: Key Clients
+    files:
+      - name: clients
+        label: Key Clients
+        file: apps/web/content/clients.json
+        fields:
+          - name: body
+            label: Clients
+            widget: list
+            fields:
+              - { name: name, label: Company Name, widget: string }
+              - { name: sector, label: Sector, widget: string }
+              - { name: logo, label: Logo Path, widget: string, hint: "e.g. /clients/ikea.svg" }
+
+  - name: company
+    label: Company Info
+    files:
+      - name: company
+        label: Company Details & Contact
+        file: apps/web/content/company.json
+        fields:
+          - { name: name, label: Company Name, widget: string }
+          - { name: address, label: Address, widget: string }
+          - { name: phoneBelgium, label: Phone (Belgium), widget: string }
+          - { name: phoneGermany, label: Phone (Germany), widget: string }
+          - { name: emailMain, label: Email (Main), widget: string }
+          - { name: emailSupport, label: Email (Support), widget: string }
+          - { name: website, label: Website URL, widget: string }
+          - name: stats
+            label: Stats
+            widget: list
+            fields:
+              - { name: value, label: Value (e.g. 450+), widget: string }
+              - { name: label, label: Label, widget: string }

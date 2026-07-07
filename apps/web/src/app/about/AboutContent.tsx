@@ -133,7 +133,7 @@ export default function AboutContent() {
 
           {/* Client cards */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
-            {a.clients.map((client) => (
+            {CLIENTS.map((client) => (
               <div key={client.name} className="flex flex-col items-center gap-3 px-4 py-5 bg-slate-50 rounded-2xl border border-slate-200 hover:bg-blue-50 hover:border-blue-200 transition-all text-center group">
                 <div className="w-full h-10 flex items-center justify-center">
                   <Image
