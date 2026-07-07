@@ -146,8 +146,17 @@ export default function AboutContent() {
           {/* Client cards */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
             {a.clients.map((client) => (
-              <div key={client.name} className="flex flex-col items-center gap-2 px-4 py-5 bg-slate-50 rounded-2xl border border-slate-200 hover:bg-blue-50 hover:border-blue-200 transition-all text-center group">
-                <span className="text-slate-800 font-black text-sm group-hover:text-blue-700 transition-colors">{client.name}</span>
+              <div key={client.name} className="flex flex-col items-center gap-3 px-4 py-5 bg-slate-50 rounded-2xl border border-slate-200 hover:bg-blue-50 hover:border-blue-200 transition-all text-center group">
+                <div className="w-full h-10 flex items-center justify-center">
+                  <Image
+                    src={client.logo}
+                    alt={client.name}
+                    width={100}
+                    height={40}
+                    className="max-h-10 w-auto object-contain"
+                  />
+                </div>
+                <span className="text-slate-700 font-bold text-xs group-hover:text-blue-700 transition-colors">{client.name}</span>
                 <span className="text-xs text-slate-400 font-medium">{client.sector}</span>
               </div>
             ))}
