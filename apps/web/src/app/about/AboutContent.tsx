@@ -57,9 +57,9 @@ export default function AboutContent() {
             {a.coverageH2_1} <span className="text-blue-600">{a.coverageH2_2}</span>
           </h2>
           <p className="text-slate-500 text-lg max-w-2xl mx-auto mb-12">{a.coverageDesc}</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {a.regions.map((r) => (
-              <div key={r.region} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 card-hover text-center">
+              <div key={r.region} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 card-hover text-center w-56">
                 <span className="text-4xl mb-4 block">{r.flag}</span>
                 <h3 className="text-slate-900 font-bold text-sm mb-2">{r.region}</h3>
                 <p className="text-slate-400 text-xs">{r.detail}</p>
@@ -92,45 +92,20 @@ export default function AboutContent() {
 
       {/* Industry specialisations */}
       <section className="py-24 bg-slate-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left label */}
-            <div>
-              <h2 className="text-4xl font-black text-slate-900 leading-tight">{a.industriesTitle}</h2>
-            </div>
-
-            {/* Right: 3 top + 1 bottom-centre */}
-            <div className="space-y-10">
-              {/* Top row — 3 */}
-              <div className="grid grid-cols-3 gap-6">
-                {a.industries.slice(0, 3).map((ind) => (
-                  <div key={ind.name} className="flex flex-col items-center text-center gap-4">
-                    <div className="w-20 h-20 rounded-full gradient-blue flex items-center justify-center shadow-lg shadow-blue-500/30 shrink-0 p-4">
-                      <Image src={ind.logo} alt={ind.name} width={48} height={48} className="w-full h-full object-contain" />
-                    </div>
-                    <div>
-                      <h3 className="text-slate-900 font-black text-xs uppercase tracking-wide mb-2">{ind.name}</h3>
-                      <p className="text-slate-500 text-xs leading-relaxed uppercase">{ind.desc}</p>
-                    </div>
-                  </div>
-                ))}
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-black text-slate-900 mb-16">{a.industriesTitle}</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+            {a.industries.map((ind) => (
+              <div key={ind.name} className="flex flex-col items-center text-center gap-4">
+                <div className="w-20 h-20 rounded-full gradient-blue flex items-center justify-center shadow-lg shadow-blue-500/30 shrink-0 p-4">
+                  <Image src={ind.logo} alt={ind.name} width={48} height={48} className="w-full h-full object-contain" />
+                </div>
+                <div>
+                  <h3 className="text-slate-900 font-black text-xs uppercase tracking-wide mb-2">{ind.name}</h3>
+                  <p className="text-slate-500 text-xs leading-relaxed">{ind.desc}</p>
+                </div>
               </div>
-
-              {/* Bottom row — 1 centred */}
-              <div className="flex justify-center">
-                {a.industries.slice(3).map((ind) => (
-                  <div key={ind.name} className="flex flex-col items-center text-center gap-4 max-w-[160px]">
-                    <div className="w-20 h-20 rounded-full gradient-blue flex items-center justify-center shadow-lg shadow-blue-500/30 shrink-0 p-4">
-                      <Image src={ind.logo} alt={ind.name} width={48} height={48} className="w-full h-full object-contain" />
-                    </div>
-                    <div>
-                      <h3 className="text-slate-900 font-black text-xs uppercase tracking-wide mb-2">{ind.name}</h3>
-                      <p className="text-slate-500 text-xs leading-relaxed uppercase">{ind.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
