@@ -339,6 +339,6 @@ export const en = {
       useCases: ['Managed service contracts', 'NOC & SOC operations', 'IT helpdesk outsourcing', 'Alarm management'],
     },
   },
-} as const
+}
 
 export type Translation = typeof en

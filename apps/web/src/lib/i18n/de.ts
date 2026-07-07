@@ -230,7 +230,7 @@ export const de: Translation = {
     heroDesc: 'Unser Team antwortet innerhalb von 2 Stunden. Für Notfallunterstützung sind WhatsApp und Telefonleitungen 24×7 verfügbar.',
     infoTitle: 'Kontaktinformationen',
     contactItems: [
-      { icon: '📍', label: 'Adresse', value: '13 Whites Row, London, E1 7NF, Vereinigtes Königreich' },
+      { icon: '📍', label: 'Adresse', value: '10 Halliwell Lane, M8 9ER, Manchester, Vereinigtes Königreich' },
       { icon: '📞', label: 'Telefon', value: '+44 (0)7760 134112', href: 'tel:+447760134112' },
       { icon: '🌍', label: 'International', value: '+1 630 423 3333', href: 'tel:+16304233333' },
       { icon: '✉️', label: 'Vertriebs-E-Mail', value: 'sales@abit-tech.com', href: 'mailto:sales@abit-tech.com' },
