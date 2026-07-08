@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useT } from '@/lib/i18n'
 import { SERVICES } from '@/lib/data'
+import { ButtonLink } from '@/components/ui/ButtonLink'
 
 interface Props {
   slug: string
@@ -72,9 +73,7 @@ export default function ServiceDetailContent({ slug }: Props) {
               <div className="gradient-blue rounded-3xl p-8 text-white">
                 <h3 className="text-xl font-black mb-3">{d.quoteCardTitle}</h3>
                 <p className="text-blue-100 text-sm mb-6 leading-relaxed">{d.quoteCardDesc}</p>
-                <Link href="/contact" className="block text-center px-6 py-3 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 transition-all text-sm">
-                  {d.quoteCardBtn}
-                </Link>
+                <ButtonLink href="/contact" variant="inverse" size="sm" className="w-full">{d.quoteCardBtn}</ButtonLink>
               </div>
 
               <div className="bg-slate-50 rounded-3xl p-6 space-y-4">

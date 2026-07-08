@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { useT } from '@/lib/i18n'
 import { SERVICES } from '@/lib/data'
+import { PageHero } from '@/components/ui/PageHero'
+import { ButtonLink } from '@/components/ui/ButtonLink'
 
 export default function ServicesContent() {
   const t = useT()
@@ -10,15 +12,7 @@ export default function ServicesContent() {
 
   return (
     <>
-      <section className="gradient-hero py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block px-4 py-1.5 glass text-blue-300 text-sm font-semibold rounded-full mb-6 border border-blue-400/20">{s.badge}</span>
-          <h1 className="text-4xl sm:text-5xl font-black text-white mb-6">
-            {s.h1_1}<br /><span className="gradient-text">{s.h1_2}</span>
-          </h1>
-          <p className="text-blue-200 text-lg max-w-2xl mx-auto">{s.heroDesc}</p>
-        </div>
-      </section>
+      <PageHero badge={s.badge} title={s.h1_1} highlight={s.h1_2} description={s.heroDesc} />
 
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,9 +53,7 @@ export default function ServicesContent() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black text-white mb-4">{s.ctaH2}</h2>
           <p className="text-blue-200 mb-8 text-lg">{s.ctaDesc}</p>
-          <Link href="/contact" className="inline-block px-8 py-4 gradient-blue text-white font-bold rounded-2xl hover:scale-105 transition-all text-sm shadow-xl shadow-blue-500/30">
-            {s.ctaBtn}
-          </Link>
+          <ButtonLink href="/contact" variant="primary">{s.ctaBtn}</ButtonLink>
         </div>
       </section>
     </>

@@ -1,17 +1,7 @@
 import servicesData from '../../content/services.json'
 import testimonialsData from '../../content/testimonials.json'
 import clientsData from '../../content/clients.json'
-
-export interface Service {
-  slug: string
-  title: string
-  shortDesc: string
-  fullDesc: string
-  icon: string
-  color: string
-  features: string[]
-  useCases: string[]
-}
+import { servicesFileSchema, testimonialsFileSchema, clientsFileSchema } from './content-schema'
 
 export interface Location {
   city: string
@@ -20,24 +10,15 @@ export interface Location {
   flag: string
 }
 
-export interface Testimonial {
-  quote: string
-  name: string
-  role: string
-  company: string
-}
+export type Service = ReturnType<typeof servicesFileSchema.parse>['services'][number]
+export type Testimonial = ReturnType<typeof testimonialsFileSchema.parse>['testimonials'][number]
+export type Client = ReturnType<typeof clientsFileSchema.parse>['clients'][number]
 
-export interface Client {
-  name: string
-  sector: string
-  logo: string
-}
+export const SERVICES: Service[] = servicesFileSchema.parse(servicesData).services
 
-export const SERVICES: Service[] = (servicesData as { services: Service[] }).services
+export const TESTIMONIALS: Testimonial[] = testimonialsFileSchema.parse(testimonialsData).testimonials
 
-export const TESTIMONIALS: Testimonial[] = (testimonialsData as { testimonials: Testimonial[] }).testimonials
-
-export const CLIENTS: Client[] = (clientsData as { clients: Client[] }).clients
+export const CLIENTS: Client[] = clientsFileSchema.parse(clientsData).clients
 
 export const LOCATIONS: Location[] = [
   { city: 'London', country: 'United Kingdom', region: 'UK', flag: '🇬🇧' },

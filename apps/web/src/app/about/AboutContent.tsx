@@ -1,9 +1,10 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { useT } from '@/lib/i18n'
 import { CLIENTS } from '@/lib/data'
+import { PageHero } from '@/components/ui/PageHero'
+import { ButtonLink } from '@/components/ui/ButtonLink'
 
 export default function AboutContent() {
   const t = useT()
@@ -12,16 +13,7 @@ export default function AboutContent() {
 
   return (
     <>
-      {/* Page hero */}
-      <section className="gradient-hero py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block px-4 py-1.5 glass text-blue-300 text-sm font-semibold rounded-full mb-6 border border-blue-400/20">{a.badge}</span>
-          <h1 className="text-4xl sm:text-5xl font-black text-white mb-6">
-            {a.h1_1}<br /><span className="gradient-text">{a.h1_2}</span>
-          </h1>
-          <p className="text-blue-200 text-lg leading-relaxed max-w-2xl mx-auto">{a.heroDesc}</p>
-        </div>
-      </section>
+      <PageHero badge={a.badge} title={a.h1_1} highlight={a.h1_2} description={a.heroDesc} />
 
       {/* Story */}
       <section className="py-24 bg-white">
@@ -175,9 +167,7 @@ export default function AboutContent() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black text-white mb-4">{a.ctaH2}</h2>
           <p className="text-blue-100 mb-8">{a.ctaDesc}</p>
-          <Link href="/contact" className="inline-block px-8 py-4 bg-white text-blue-700 font-bold rounded-2xl hover:bg-blue-50 transition-all text-sm shadow-xl">
-            {a.ctaBtn}
-          </Link>
+          <ButtonLink href="/contact" variant="inverse">{a.ctaBtn}</ButtonLink>
         </div>
       </section>
     </>

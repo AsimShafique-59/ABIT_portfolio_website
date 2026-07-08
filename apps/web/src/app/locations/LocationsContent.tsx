@@ -1,8 +1,9 @@
 'use client'
 
-import Link from 'next/link'
 import { useT } from '@/lib/i18n'
 import { LOCATIONS } from '@/lib/data'
+import { PageHero } from '@/components/ui/PageHero'
+import { ButtonLink } from '@/components/ui/ButtonLink'
 
 export default function LocationsContent() {
   const t = useT()
@@ -12,15 +13,7 @@ export default function LocationsContent() {
 
   return (
     <>
-      <section className="gradient-hero py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block px-4 py-1.5 glass text-blue-300 text-sm font-semibold rounded-full mb-6 border border-blue-400/20">{l.badge}</span>
-          <h1 className="text-4xl sm:text-5xl font-black text-white mb-6">
-            {l.h1_1}<br /><span className="gradient-text">{l.h1_2}</span>
-          </h1>
-          <p className="text-blue-200 text-lg max-w-2xl mx-auto">{l.heroDesc}</p>
-        </div>
-      </section>
+      <PageHero badge={l.badge} title={l.h1_1} highlight={l.h1_2} description={l.heroDesc} />
 
       <section className="gradient-blue py-14">
         <div className="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -80,9 +73,7 @@ export default function LocationsContent() {
           <div className="text-4xl mb-6">🔐</div>
           <h2 className="text-3xl font-black text-white mb-4">{l.scTitle}</h2>
           <p className="text-blue-200 text-lg mb-8 leading-relaxed">{l.scDesc}</p>
-          <Link href="/contact" className="inline-block px-8 py-4 gradient-blue text-white font-bold rounded-2xl hover:scale-105 transition-all text-sm shadow-xl shadow-blue-500/30">
-            {l.scBtn}
-          </Link>
+          <ButtonLink href="/contact" variant="primary">{l.scBtn}</ButtonLink>
         </div>
       </section>
     </>

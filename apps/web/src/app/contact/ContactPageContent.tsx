@@ -2,6 +2,7 @@
 
 import { useT } from '@/lib/i18n'
 import ContactForm from './ContactForm'
+import { PageHero } from '@/components/ui/PageHero'
 
 export default function ContactPageContent() {
   const t = useT()
@@ -9,17 +10,7 @@ export default function ContactPageContent() {
 
   return (
     <>
-      <section className="gradient-hero py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block px-4 py-1.5 glass text-blue-300 text-sm font-semibold rounded-full mb-6 border border-blue-400/20">
-            {c.badge}
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-black text-white mb-6">
-            {c.h1_1}<br /><span className="gradient-text">{c.h1_2}</span>
-          </h1>
-          <p className="text-blue-200 text-lg max-w-2xl mx-auto">{c.heroDesc}</p>
-        </div>
-      </section>
+      <PageHero badge={c.badge} title={c.h1_1} highlight={c.h1_2} description={c.heroDesc} />
 
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

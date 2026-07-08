@@ -1,7 +1,7 @@
 'use client'
 
-import Link from 'next/link'
 import { useT } from '@/lib/i18n'
+import { ButtonLink } from '@/components/ui/ButtonLink'
 
 export default function CTASection() {
   const t = useT()
@@ -30,12 +30,8 @@ export default function CTASection() {
         </h2>
         <p className="text-blue-200 text-lg mb-10 max-w-2xl mx-auto">{c.desc}</p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Link href="/contact" className="px-8 py-4 bg-white text-blue-700 font-bold rounded-2xl hover:bg-blue-50 transition-all hover:scale-105 shadow-xl text-sm">
-            {c.btnQuote}
-          </Link>
-          <a href="mailto:sales@abit-tech.com" className="px-8 py-4 glass text-white font-semibold rounded-2xl border border-white/20 hover:bg-white/15 transition-all text-sm">
-            {c.btnEmail}
-          </a>
+          <ButtonLink href="/contact" variant="inverse">{c.btnQuote}</ButtonLink>
+          <ButtonLink href="mailto:sales@abit-tech.com" variant="glass">{c.btnEmail}</ButtonLink>
         </div>
         <p className="mt-8 text-blue-300 text-sm">{c.contact}</p>
       </div>
