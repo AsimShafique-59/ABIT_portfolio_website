@@ -17,15 +17,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="mb-6">
-              <div className="inline-block bg-white rounded-xl px-3 py-1.5 shadow-md shadow-blue-900/40">
-                <Image
-                  src="/logo.png"
-                  alt="AB IT and Technical Services"
-                  width={140}
-                  height={48}
-                  className="h-10 w-auto object-contain"
-                />
-              </div>
+              <Image
+                src="/logo.png"
+                alt="AB IT and Technical Services"
+                width={140}
+                height={48}
+                className="h-11 w-auto object-contain"
+              />
             </div>
             <p className="text-blue-200 text-sm leading-relaxed mb-6">{f.tagline}</p>
             <div className="flex gap-3">

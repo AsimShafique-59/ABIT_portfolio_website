@@ -27,16 +27,14 @@ export default function Header() {
         <div className="flex items-center justify-between h-18 py-3">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="bg-white rounded-xl px-3 py-1.5 shadow-md shadow-blue-900/40">
-              <Image
-                src="/logo.png"
-                alt="AB IT and Technical Services"
-                width={150}
-                height={50}
-                className="h-10 w-auto object-contain"
-                priority
-              />
-            </div>
+            <Image
+              src="/logo.png"
+              alt="AB IT and Technical Services"
+              width={150}
+              height={50}
+              className="h-11 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}
