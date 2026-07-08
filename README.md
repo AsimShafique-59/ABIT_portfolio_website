@@ -20,9 +20,12 @@ Portfolio website for **AB IT and Technical Services**, a leading IT solutions p
 |-------|-----------|
 | Framework | Next.js 16.2.10 (App Router, Turbopack) |
 | Language | TypeScript 5 (strict mode) |
-| Styling | Tailwind CSS v4 |
+| Styling | Tailwind CSS v4, `class-variance-authority` + `tailwind-merge` for component variants |
 | State | Zustand v5 (language toggle persistence) |
-| i18n | Client-side EN/DE toggle via custom `useT()` hook |
+| i18n | Client-side EN/DE toggle via custom `useT()` hook, type-checked so `de.ts` can't drift from `en.ts` |
+| Content validation | Zod schemas validate CMS-edited JSON at build time |
+| Testing | Jest + Testing Library |
+| CMS | Decap CMS (`/admin`), git-gateway backend |
 | Deployment | Netlify (static export) |
 
 ---
@@ -32,8 +35,9 @@ Portfolio website for **AB IT and Technical Services**, a leading IT solutions p
 - **Bilingual** — full English / German toggle, persisted in localStorage
 - **10 service pages** — data centre, IT support, network & cabling, cybersecurity, and more
 - **Static export** — all 18 pages pre-rendered at build time, zero server required
-- **No database, no auth** — all content in TypeScript data files
+- **No database, no auth** — all content in TypeScript data files and CMS-managed JSON
 - **Responsive** — mobile-first design with gradient blue/white theme
+- **Fail-fast content** — malformed CMS edits break the build with a clear Zod error instead of a broken page in production
 
 ---
 
@@ -43,8 +47,12 @@ Portfolio website for **AB IT and Technical Services**, a leading IT solutions p
 ABIT_portfolio_website/
 ├── apps/
 │   └── web/                        # Next.js frontend
+│       ├── content/                 # CMS-managed JSON (services, testimonials, clients)
 │       ├── public/
-│       │   └── logo.png            # Company logo
+│       │   ├── logo.png            # Company logo
+│       │   ├── clients/            # Client logos (SVG)
+│       │   ├── industries/         # Industry icons (SVG)
+│       │   └── admin/              # Decap CMS admin panel
 │       ├── src/
 │       │   ├── app/                # App Router pages
 │       │   │   ├── page.tsx        # Home
@@ -54,14 +62,19 @@ ABIT_portfolio_website/
 │       │   │   └── contact/        # Contact form
 │       │   ├── components/
 │       │   │   ├── layout/         # Header, Footer
-│       │   │   └── sections/       # Hero, ServicesGrid, Stats, etc.
+│       │   │   ├── sections/       # Hero, ServicesGrid, Stats, etc.
+│       │   │   └── ui/             # Shared primitives: PageHero, ButtonLink
 │       │   ├── lib/
-│       │   │   ├── data.ts         # All service/location/stats data
+│       │   │   ├── data.ts         # Validated service/location/testimonial/client data
+│       │   │   ├── content-schema.ts # Zod schemas for CMS JSON
+│       │   │   ├── cn.ts           # Tailwind class-merging utility
 │       │   │   └── i18n/           # en.ts, de.ts, useT() hook
 │       │   └── store/
 │       │       └── useLanguageStore.ts   # Zustand language store
+│       ├── jest.config.ts          # Test runner config
 │       ├── next.config.ts          # Static export config
 │       └── package.json
+├── .gitignore                      # Single repo-wide gitignore
 └── netlify.toml                    # Netlify build config
 ```
 
@@ -100,24 +113,30 @@ Build settings (auto-detected from `netlify.toml`):
 
 ---
 
-## Content Updates
+## Testing
 
-All site content lives in two files — no database needed:
+```bash
+cd apps/web
+npm test
+```
 
-| File | What to edit |
-|------|-------------|
-| `src/lib/data.ts` | Services, stats, locations |
-| `src/lib/i18n/en.ts` | All English text |
-| `src/lib/i18n/de.ts` | All German text |
+Jest + Testing Library cover the language store, the Tailwind class-merging utility, and the Zod content schemas. Run `npm run build` to also type-check the whole app and prerender every page — the fastest way to catch a broken page.
 
 ---
 
-## Contact
+## Content Updates
 
-**AB IT and Technical Services**
-10 Halliwell Lane, Manchester, England, M8 9ER
+No database needed — content lives in JSON (editable via the `/admin` CMS panel) and TypeScript data files:
 
-- Belgium: +32 487 720065
-- Germany: +49 176 21472983
-- Service Delivery: muhammad.abdullah@abittechnical.co.uk
-- Technical Delivery: basim.shafique@abittechnical.co.uk
+| File | What to edit |
+|------|-------------|
+| `content/services.json` | Service catalogue (validated by `lib/content-schema.ts`) |
+| `content/testimonials.json` | Client testimonials |
+| `content/clients.json` | Key client logos and sectors |
+| `src/lib/data.ts` | Locations (not CMS-managed) |
+| `src/lib/i18n/en.ts` | All English text |
+| `src/lib/i18n/de.ts` | All German text |
+
+CMS-edited JSON is validated against a Zod schema at build time — a missing or malformed field fails the build immediately instead of shipping a broken page.
+
+---
