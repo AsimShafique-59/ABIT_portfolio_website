@@ -1,7 +1,10 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useT } from '@/lib/i18n'
+import { CountUp } from '@/components/ui/CountUp'
+import { Reveal } from '@/components/ui/Reveal'
 
 export default function Hero() {
   const t = useT()
@@ -9,6 +12,15 @@ export default function Hero() {
 
   return (
     <section className="gradient-hero min-h-[92vh] flex items-center relative overflow-hidden">
+      <Image
+        src="/images/hero/server-corridor-blue.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover opacity-30"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#050d24]/85 via-[#0f2060]/80 to-[#050d24]/95" />
       <div
         className="absolute inset-0 opacity-10"
         style={{
@@ -56,7 +68,9 @@ export default function Hero() {
             <div className="grid grid-cols-3 gap-6 mt-14 pt-8 border-t border-white/10">
               {h.quickStats.map((stat) => (
                 <div key={stat.label}>
-                  <div className="text-2xl font-black text-white">{stat.value}</div>
+                  <div className="text-2xl font-black text-white">
+                    <CountUp value={stat.value} />
+                  </div>
                   <div className="text-blue-300 text-xs mt-1">{stat.label}</div>
                 </div>
               ))}
@@ -65,17 +79,13 @@ export default function Hero() {
 
           <div className="hidden lg:grid grid-cols-2 gap-4">
             {h.cards.map((card, i) => (
-              <div
-                key={card.title}
-                className="glass rounded-2xl p-5 card-hover"
-                style={{ animationDelay: `${i * 0.1}s` }}
-              >
+              <Reveal key={card.title} delayMs={i * 100} className="glass rounded-2xl p-5 card-hover">
                 <span className="text-3xl mb-3 block">
                   {['🏢', '📡', '☁️', '💻', '👷', '🔒'][i]}
                 </span>
                 <h3 className="text-white font-bold text-sm mb-1">{card.title}</h3>
                 <p className="text-blue-300 text-xs">{card.desc}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

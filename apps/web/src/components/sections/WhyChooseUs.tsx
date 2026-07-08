@@ -1,6 +1,7 @@
 'use client'
 
 import { useT } from '@/lib/i18n'
+import { Reveal } from '@/components/ui/Reveal'
 
 export default function WhyChooseUs() {
   const t = useT()
@@ -10,7 +11,7 @@ export default function WhyChooseUs() {
     <section className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
+          <Reveal>
             <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 text-sm font-semibold rounded-full mb-4 tracking-wide uppercase">
               {w.badge}
             </span>
@@ -28,17 +29,17 @@ export default function WhyChooseUs() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-2 gap-5">
-            {w.items.map((item) => (
-              <div key={item.title} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 card-hover group">
+            {w.items.map((item, i) => (
+              <Reveal key={item.title} delayMs={i * 100} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 card-hover group">
                 <span className="text-3xl mb-4 block">{item.icon}</span>
                 <h3 className="text-slate-900 font-bold text-sm mb-2 group-hover:text-blue-600 transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

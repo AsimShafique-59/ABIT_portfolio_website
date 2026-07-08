@@ -12,11 +12,11 @@ export default function Footer() {
 
   return (
     <footer className="gradient-dark text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="mb-6">
+            <div className="mb-4">
               <Image
                 src="/logo.png"
                 alt="AB IT and Technical Services"
@@ -25,7 +25,7 @@ export default function Footer() {
                 className="h-11 w-auto object-contain"
               />
             </div>
-            <p className="text-blue-200 text-sm leading-relaxed mb-6">{f.tagline}</p>
+            <p className="text-blue-200 text-sm leading-relaxed mb-4">{f.tagline}</p>
             <div className="flex gap-3">
               {['in', 'tw', 'gh'].map((s) => (
                 <div key={s} className="w-9 h-9 rounded-lg glass flex items-center justify-center text-blue-300 text-xs font-bold hover:bg-blue-600 hover:text-white transition-all cursor-pointer uppercase">
@@ -37,9 +37,9 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-6">{f.servicesTitle}</h3>
-            <ul className="space-y-3">
-              {SERVICES.slice(0, 7).map((svc) => {
+            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">{f.servicesTitle}</h3>
+            <ul className="space-y-2.5">
+              {SERVICES.slice(0, 5).map((svc) => {
                 const translated = t.services[svc.slug as keyof typeof t.services]
                 return (
                   <li key={svc.slug}>
@@ -54,8 +54,8 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-6">{f.companyTitle}</h3>
-            <ul className="space-y-3">
+            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">{f.companyTitle}</h3>
+            <ul className="space-y-2.5">
               {f.links.map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className="text-blue-200 hover:text-blue-400 text-sm transition-colors">{label}</Link>
@@ -66,8 +66,8 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-6">{f.contactTitle}</h3>
-            <ul className="space-y-4 text-sm text-blue-200">
+            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">{f.contactTitle}</h3>
+            <ul className="space-y-3 text-sm text-blue-200">
               <li className="flex gap-3"><span className="text-blue-400 mt-0.5">📍</span><span>{f.address}</span></li>
               <li className="flex gap-3"><span className="text-blue-400">📞</span><a href="tel:+447760134112" className="hover:text-blue-400 transition-colors">{f.phone}</a></li>
               <li className="flex gap-3"><span className="text-blue-400">✉️</span><a href="mailto:sales@abit-tech.com" className="hover:text-blue-400 transition-colors">{f.email}</a></li>
@@ -79,7 +79,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-blue-300 text-sm">{f.rights.replace('{year}', String(year))}</p>
           <div className="flex gap-6">
             {f.legal.map((item) => (

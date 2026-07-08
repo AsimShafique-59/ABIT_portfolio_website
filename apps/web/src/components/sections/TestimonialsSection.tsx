@@ -2,6 +2,7 @@
 
 import { useT } from '@/lib/i18n'
 import { TESTIMONIALS } from '@/lib/data'
+import { Reveal } from '@/components/ui/Reveal'
 
 export default function TestimonialsSection() {
   const t = useT()
@@ -10,7 +11,7 @@ export default function TestimonialsSection() {
   return (
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <Reveal className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 bg-blue-50 text-blue-700 text-sm font-semibold rounded-full mb-4 tracking-wide uppercase">
             {tm.badge}
           </span>
@@ -19,11 +20,11 @@ export default function TestimonialsSection() {
             <br />
             <span className="text-blue-600">{tm.h2_2}</span>
           </h2>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {TESTIMONIALS.map((item) => (
-            <div key={item.name} className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm card-hover relative">
+          {TESTIMONIALS.map((item, i) => (
+            <Reveal key={item.name} delayMs={i * 120} className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm card-hover relative">
               <div className="absolute top-6 right-8 text-6xl text-blue-100 font-black leading-none select-none">&rdquo;</div>
               <div className="flex gap-1 mb-5">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -40,7 +41,7 @@ export default function TestimonialsSection() {
                   <div className="text-slate-400 text-xs">{item.role} · {item.company}</div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

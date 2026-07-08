@@ -3,6 +3,7 @@
 import { useT } from '@/lib/i18n'
 import ContactForm from './ContactForm'
 import { PageHero } from '@/components/ui/PageHero'
+import { Reveal } from '@/components/ui/Reveal'
 
 export default function ContactPageContent() {
   const t = useT()
@@ -10,12 +11,18 @@ export default function ContactPageContent() {
 
   return (
     <>
-      <PageHero badge={c.badge} title={c.h1_1} highlight={c.h1_2} description={c.heroDesc} />
+      <PageHero
+        badge={c.badge}
+        title={c.h1_1}
+        highlight={c.h1_2}
+        description={c.heroDesc}
+        image="/images/hero/cable-management-aisle.jpg"
+      />
 
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-16">
-            <div className="lg:col-span-2 space-y-8">
+            <Reveal className="lg:col-span-2 space-y-8">
               <div>
                 <h2 className="text-2xl font-black text-slate-900 mb-6">{c.infoTitle}</h2>
                 <div className="space-y-5">
@@ -55,11 +62,11 @@ export default function ContactPageContent() {
                   {c.emergencyBtn}
                 </a>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="lg:col-span-3">
+            <Reveal delayMs={150} className="lg:col-span-3">
               <ContactForm />
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

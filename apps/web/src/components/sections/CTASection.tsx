@@ -2,6 +2,7 @@
 
 import { useT } from '@/lib/i18n'
 import { ButtonLink } from '@/components/ui/ButtonLink'
+import { Reveal } from '@/components/ui/Reveal'
 
 export default function CTASection() {
   const t = useT()
@@ -19,7 +20,7 @@ export default function CTASection() {
       />
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <Reveal className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span className="inline-block px-4 py-1.5 glass text-blue-300 text-sm font-semibold rounded-full mb-6 border border-blue-400/20">
           {c.badge}
         </span>
@@ -34,7 +35,7 @@ export default function CTASection() {
           <ButtonLink href="mailto:sales@abit-tech.com" variant="glass">{c.btnEmail}</ButtonLink>
         </div>
         <p className="mt-8 text-blue-300 text-sm">{c.contact}</p>
-      </div>
+      </Reveal>
     </section>
   )
 }

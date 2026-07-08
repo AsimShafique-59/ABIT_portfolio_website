@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/cn'
 
-const buttonVariants = cva('inline-flex items-center justify-center gap-2 font-bold transition-all', {
+const buttonVariants = cva('inline-flex items-center justify-center gap-2 font-bold transition-all active:scale-95', {
   variants: {
     variant: {
       primary: 'gradient-blue text-white shadow-xl shadow-blue-500/30 hover:scale-105',

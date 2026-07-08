@@ -37,58 +37,56 @@ export default function Header() {
             />
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
-            {NAV_LINKS.map(({ href, label }) => {
-              const active = pathname === href || (href !== '/' && pathname.startsWith(href))
-              return (
-                <Link
-                  key={href}
-                  href={href}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    active
-                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
-                      : 'text-blue-100 hover:text-white hover:bg-white/10'
-                  }`}
-                >
-                  {label}
-                </Link>
-              )
-            })}
-          </nav>
+          {/* Desktop Nav + controls, grouped so they sit together on the right */}
+          <div className="hidden md:flex items-center gap-8">
+            <nav className="flex items-center gap-8">
+              {NAV_LINKS.map(({ href, label }) => {
+                const active = pathname === href || (href !== '/' && pathname.startsWith(href))
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    className={`relative py-2 text-sm font-medium transition-colors duration-200 ${
+                      active ? 'text-white' : 'text-blue-200/70 hover:text-white'
+                    }`}
+                  >
+                    {label}
+                    {active && <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 rounded-full bg-blue-500" />}
+                  </Link>
+                )
+              })}
+            </nav>
 
-          <div className="hidden md:flex items-center gap-3">
+            <div className="w-px h-5 bg-white/10" />
+
             {/* Language Toggle */}
             <button
               onClick={toggleLang}
               aria-label="Toggle language"
-              className="flex items-center gap-1.5 px-3 py-2 rounded-xl glass border border-white/10 text-sm font-semibold text-white hover:bg-white/10 transition-all duration-200 select-none"
+              className="flex items-center gap-1.5 text-sm font-medium text-blue-200/80 hover:text-white transition-colors duration-200 select-none"
             >
               <span className="text-base leading-none">{lang === 'en' ? '🇬🇧' : '🇩🇪'}</span>
-              <span className="text-blue-200 text-xs">{lang === 'en' ? 'EN' : 'DE'}</span>
-              <svg className="w-3 h-3 text-blue-400 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-              </svg>
+              <span>{lang === 'en' ? 'EN' : 'DE'}</span>
             </button>
 
             <Link
               href="/contact"
-              className="px-5 py-2.5 gradient-blue text-white text-sm font-semibold rounded-xl shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105 transition-all duration-200"
+              className="px-5 py-2.5 gradient-blue text-white text-sm font-semibold rounded-full border border-blue-400/30 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-[1.03] transition-all duration-200"
             >
               {t.nav.quote}
             </Link>
           </div>
 
           {/* Mobile controls */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="md:hidden flex items-center gap-3">
             {/* Mobile language toggle */}
             <button
               onClick={toggleLang}
               aria-label="Toggle language"
-              className="flex items-center gap-1 px-2.5 py-2 rounded-lg glass border border-white/10 text-sm text-white"
+              className="flex items-center gap-1 text-sm font-medium text-blue-200/80"
             >
               <span>{lang === 'en' ? '🇬🇧' : '🇩🇪'}</span>
-              <span className="text-blue-200 text-xs font-semibold">{lang === 'en' ? 'EN' : 'DE'}</span>
+              <span>{lang === 'en' ? 'EN' : 'DE'}</span>
             </button>
 
             <button
@@ -120,8 +118,8 @@ export default function Header() {
                 key={href}
                 href={href}
                 onClick={() => setIsOpen(false)}
-                className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all ${
-                  active ? 'bg-blue-600 text-white' : 'text-blue-100 hover:bg-white/10 hover:text-white'
+                className={`block px-4 py-3 text-sm font-medium border-l-2 transition-all ${
+                  active ? 'border-blue-500 text-white bg-white/5' : 'border-transparent text-blue-200/70 hover:text-white hover:bg-white/5'
                 }`}
               >
                 {label}
@@ -132,7 +130,7 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
-              className="block text-center px-4 py-3 gradient-blue text-white rounded-xl text-sm font-semibold"
+              className="block text-center px-4 py-3 gradient-blue text-white rounded-full text-sm font-semibold"
             >
               {t.nav.quote}
             </Link>

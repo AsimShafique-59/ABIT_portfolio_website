@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useT } from '@/lib/i18n'
 import { SERVICES } from '@/lib/data'
 import { ButtonLink } from '@/components/ui/ButtonLink'
+import { Reveal } from '@/components/ui/Reveal'
 
 interface Props {
   slug: string
@@ -24,7 +25,7 @@ export default function ServiceDetailContent({ slug }: Props) {
   return (
     <>
       <section className="gradient-hero py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <Reveal className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Link href="/services" className="inline-flex items-center gap-2 text-blue-300 hover:text-blue-200 text-sm mb-8 transition-colors">
             {d.backLink}
           </Link>
@@ -35,7 +36,7 @@ export default function ServiceDetailContent({ slug }: Props) {
           <p className="text-blue-200 text-lg max-w-2xl mx-auto leading-relaxed">
             {tr?.shortDesc ?? service.shortDesc}
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <section className="py-24 bg-white">
@@ -47,13 +48,13 @@ export default function ServiceDetailContent({ slug }: Props) {
 
               <h3 className="text-xl font-black text-slate-900 mb-6">{d.deliversTitle}</h3>
               <div className="grid sm:grid-cols-2 gap-4 mb-10">
-                {features.map((f) => (
-                  <div key={f} className="flex items-start gap-3 bg-slate-50 rounded-xl p-4">
+                {features.map((f, i) => (
+                  <Reveal key={f} delayMs={(i % 4) * 60} className="flex items-start gap-3 bg-slate-50 rounded-xl p-4">
                     <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5">
                       <span className="text-blue-600 text-xs">✓</span>
                     </div>
                     <span className="text-slate-700 text-sm leading-relaxed">{f}</span>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
 
@@ -102,16 +103,18 @@ export default function ServiceDetailContent({ slug }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-black text-slate-900 mb-8">{d.relatedTitle}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {related.map((s) => {
+            {related.map((s, i) => {
               const relTr = t.services[s.slug as keyof typeof t.services]
               return (
-                <Link key={s.slug} href={`/services/${s.slug}`} className="bg-white rounded-2xl p-6 border border-slate-100 card-hover group">
-                  <span className="text-3xl mb-4 block">{s.icon}</span>
-                  <h3 className="text-slate-900 font-bold text-sm mb-2 group-hover:text-blue-600 transition-colors">
-                    {relTr?.title ?? s.title}
-                  </h3>
-                  <p className="text-slate-500 text-xs leading-relaxed">{relTr?.shortDesc ?? s.shortDesc}</p>
-                </Link>
+                <Reveal key={s.slug} delayMs={i * 100}>
+                  <Link href={`/services/${s.slug}`} className="block bg-white rounded-2xl p-6 border border-slate-100 card-hover group">
+                    <span className="text-3xl mb-4 block">{s.icon}</span>
+                    <h3 className="text-slate-900 font-bold text-sm mb-2 group-hover:text-blue-600 transition-colors">
+                      {relTr?.title ?? s.title}
+                    </h3>
+                    <p className="text-slate-500 text-xs leading-relaxed">{relTr?.shortDesc ?? s.shortDesc}</p>
+                  </Link>
+                </Reveal>
               )
             })}
           </div>
