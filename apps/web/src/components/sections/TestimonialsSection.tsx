@@ -24,7 +24,7 @@ export default function TestimonialsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {TESTIMONIALS.map((item) => (
             <div key={item.name} className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm card-hover relative">
-              <div className="absolute top-6 right-8 text-6xl text-blue-100 font-black leading-none select-none">"</div>
+              <div className="absolute top-6 right-8 text-6xl text-blue-100 font-black leading-none select-none">&rdquo;</div>
               <div className="flex gap-1 mb-5">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <span key={i} className="text-yellow-400 text-sm">★</span>
