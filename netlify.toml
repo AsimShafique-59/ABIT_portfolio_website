@@ -18,7 +18,23 @@
   status = 200
   force  = true
 
-[[redirects]]
-  from   = "/*"
-  to     = "/index.html"
-  status = 200
+# No blanket "/* -> /index.html" catch-all: this is a fully static export where
+# every real route already has a pre-rendered out/<path>/index.html, and Next
+# also emits out/404.html. Netlify serves matching files directly and falls
+# back to 404.html for anything else, so removing the catch-all gives real
+# 404s instead of masking every unmatched/typo'd URL (including /robots.txt
+# and /sitemap.xml before their own routes existed) behind a 200 homepage.
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), camera=(), microphone=()"
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self' https://identity.netlify.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; font-src 'self' data:; connect-src 'self' https://api.netlify.com https://identity.netlify.com; frame-ancestors 'none'"

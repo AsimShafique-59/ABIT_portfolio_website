@@ -34,7 +34,10 @@ function formatCount(count: number, parsed: ParsedValue): string {
 export function CountUp({ value, durationMs = 1600, className }: CountUpProps) {
   const { ref, inView } = useInView<HTMLSpanElement>(0.4)
   const parsed = useMemo(() => parseValue(value), [value])
-  const [display, setDisplay] = useState(() => (parsed ? formatCount(0, parsed) : value))
+  // Initial render (including the static/SSR HTML crawlers see) shows the real
+  // value, not 0 — the count-up animation below overrides it client-side only
+  // once the element scrolls into view.
+  const [display, setDisplay] = useState(() => (parsed ? formatCount(parsed.number, parsed) : value))
   const started = useRef(false)
 
   useEffect(() => {
@@ -42,6 +45,7 @@ export function CountUp({ value, durationMs = 1600, className }: CountUpProps) {
     started.current = true
 
     const { number, suffix, hasComma } = parsed
+    setDisplay(formatCount(0, parsed))
     const start = performance.now()
 
     function tick(now: number) {

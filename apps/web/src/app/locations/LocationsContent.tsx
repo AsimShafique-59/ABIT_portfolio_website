@@ -21,6 +21,8 @@ export default function LocationsContent() {
         highlight={l.h1_2}
         description={l.heroDesc}
         image="/images/hero/server-room-raised-floor.jpg"
+        ctaLabel={t.nav.quote}
+        ctaHref="/contact"
       />
 
       <section className="gradient-blue py-14">

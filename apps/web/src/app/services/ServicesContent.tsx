@@ -19,6 +19,8 @@ export default function ServicesContent() {
         highlight={s.h1_2}
         description={s.heroDesc}
         image="/images/hero/server-corridor-orange.jpg"
+        ctaLabel={t.nav.quote}
+        ctaHref="/contact"
       />
 
       <section className="py-24 bg-white">
