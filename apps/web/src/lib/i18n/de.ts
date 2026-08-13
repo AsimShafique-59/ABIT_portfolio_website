@@ -124,7 +124,7 @@ export const de: Translation = {
       { href: '/services', label: 'Alle Dienstleistungen' },
     ],
     address: '10 Halliwell Lane, M8 9ER, Manchester, United Kingdom',
-    phone: '+44 (0)7760 134112',
+    phone: '+32 487 720065',
     email: 'muhammad.abdullah@abittechnical.co.uk',
     whatsapp: 'WhatsApp 24×7 Service-Desk',
     chatHours: 'Chat: 8:30–18:30 Uhr GMT',
