@@ -70,7 +70,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-blue-200">
               <li className="flex gap-3"><span className="text-blue-400 mt-0.5">📍</span><span>{f.address}</span></li>
               <li className="flex gap-3"><span className="text-blue-400">📞</span><a href="tel:+447760134112" className="hover:text-blue-400 transition-colors">{f.phone}</a></li>
-              <li className="flex gap-3"><span className="text-blue-400">✉️</span><a href="mailto:sales@abit-tech.com" className="hover:text-blue-400 transition-colors">{f.email}</a></li>
+              <li className="flex gap-3"><span className="text-blue-400">✉️</span><a href="mailto:muhammad.abdullah@abittechnical.co.uk" className="hover:text-blue-400 transition-colors">{f.email}</a></li>
               <li className="flex gap-3"><span className="text-blue-400">💬</span><span>{f.whatsapp}</span></li>
               <li className="flex gap-3"><span className="text-blue-400">🕐</span><span>{f.chatHours}</span></li>
             </ul>
@@ -82,8 +82,12 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-blue-300 text-sm">{f.rights.replace('{year}', String(year))}</p>
           <div className="flex gap-6">
-            {f.legal.map((item) => (
-              <span key={item} className="text-blue-400 hover:text-blue-200 text-sm cursor-pointer transition-colors">{item}</span>
+            {[
+              { href: '/privacy', label: f.legal[0] },
+              { href: '/terms', label: f.legal[1] },
+              { href: '/privacy#gdpr', label: f.legal[2] },
+            ].map((item) => (
+              <Link key={item.href} href={item.href} className="text-blue-400 hover:text-blue-200 text-sm transition-colors">{item.label}</Link>
             ))}
           </div>
         </div>

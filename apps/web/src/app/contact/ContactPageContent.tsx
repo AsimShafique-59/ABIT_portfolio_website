@@ -17,6 +17,8 @@ export default function ContactPageContent() {
         highlight={c.h1_2}
         description={c.heroDesc}
         image="/images/hero/cable-management-aisle.jpg"
+        ctaLabel={c.emergencyBtn}
+        ctaHref="tel:+447760134112"
       />
 
       <section className="py-24 bg-white">

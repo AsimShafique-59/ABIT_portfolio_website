@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Reveal } from './Reveal'
+import { ButtonLink } from './ButtonLink'
 
 interface PageHeroProps {
   badge: string
@@ -7,9 +8,11 @@ interface PageHeroProps {
   highlight: string
   description: string
   image?: string
+  ctaLabel?: string
+  ctaHref?: string
 }
 
-export function PageHero({ badge, title, highlight, description, image }: PageHeroProps) {
+export function PageHero({ badge, title, highlight, description, image, ctaLabel, ctaHref }: PageHeroProps) {
   return (
     <section className="gradient-hero py-28 relative overflow-hidden">
       {image && (
@@ -47,6 +50,11 @@ export function PageHero({ badge, title, highlight, description, image }: PageHe
           <span className="gradient-text">{highlight}</span>
         </h1>
         <p className="text-blue-200 text-lg leading-relaxed max-w-2xl mx-auto">{description}</p>
+        {ctaHref && ctaLabel && (
+          <div className="mt-8">
+            <ButtonLink href={ctaHref}>{ctaLabel}</ButtonLink>
+          </div>
+        )}
       </Reveal>
     </section>
   )

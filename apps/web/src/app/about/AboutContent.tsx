@@ -21,6 +21,8 @@ export default function AboutContent() {
         highlight={a.h1_2}
         description={a.heroDesc}
         image="/images/hero/technician-rack-install.jpg"
+        ctaLabel={t.nav.quote}
+        ctaHref="/contact"
       />
 
       {/* Story */}

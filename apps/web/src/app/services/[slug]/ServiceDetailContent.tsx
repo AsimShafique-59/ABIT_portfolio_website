@@ -81,7 +81,7 @@ export default function ServiceDetailContent({ slug }: Props) {
                 <h3 className="text-slate-900 font-bold text-sm">{d.speakTitle}</h3>
                 <div className="space-y-3 text-sm text-slate-600">
                   <div className="flex gap-3"><span>📞</span><a href="tel:+447760134112" className="hover:text-blue-600 transition-colors">+44 (0)7760 134112</a></div>
-                  <div className="flex gap-3"><span>✉️</span><a href="mailto:sales@abit-tech.com" className="hover:text-blue-600 transition-colors">sales@abit-tech.com</a></div>
+                  <div className="flex gap-3"><span>✉️</span><a href="mailto:muhammad.abdullah@abittechnical.co.uk" className="hover:text-blue-600 transition-colors">muhammad.abdullah@abittechnical.co.uk</a></div>
                   <div className="flex gap-3"><span>💬</span><span>WhatsApp 24×7</span></div>
                 </div>
               </div>

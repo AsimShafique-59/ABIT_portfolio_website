@@ -32,7 +32,7 @@ export default function CTASection() {
         <p className="text-blue-200 text-lg mb-10 max-w-2xl mx-auto">{c.desc}</p>
         <div className="flex flex-wrap justify-center gap-4">
           <ButtonLink href="/contact" variant="inverse">{c.btnQuote}</ButtonLink>
-          <ButtonLink href="mailto:sales@abit-tech.com" variant="glass">{c.btnEmail}</ButtonLink>
+          <ButtonLink href="mailto:muhammad.abdullah@abittechnical.co.uk" variant="glass">{c.btnEmail}</ButtonLink>
         </div>
         <p className="mt-8 text-blue-300 text-sm">{c.contact}</p>
       </Reveal>

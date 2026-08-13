@@ -83,7 +83,7 @@ export default function Header() {
             <button
               onClick={toggleLang}
               aria-label="Toggle language"
-              className="flex items-center gap-1 text-sm font-medium text-blue-200/80"
+              className="flex items-center justify-center gap-1 min-w-11 min-h-11 text-sm font-medium text-blue-200/80 rounded-lg hover:bg-white/10 transition-colors"
             >
               <span>{lang === 'en' ? '🇬🇧' : '🇩🇪'}</span>
               <span>{lang === 'en' ? 'EN' : 'DE'}</span>
@@ -91,7 +91,7 @@ export default function Header() {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+              className="text-white p-2 min-w-11 min-h-11 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors"
               aria-label="Toggle menu"
             >
               {isOpen ? (
